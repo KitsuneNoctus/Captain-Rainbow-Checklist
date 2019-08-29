@@ -23,7 +23,10 @@ def update(index, item):
 # Destroy
 def destroy(index):
     """Remove elements from list"""
-    checklist.pop(index)
+    try:
+        checklist.pop(index)
+    except IndexError:
+        print("That Index does not exist.")
 
 
 def list_all_items():
@@ -47,31 +50,38 @@ def mark_completed(index):
 #Select Function ---------------
 def select(function_code):
     # Create item
-    if function_code == "C":
-        input_item = user_input("Input item:")
+    if function_code == "C" or function_code == "c":
+        input_item = user_input("Input item: ")
         create(input_item)
 
     # Read item
-    elif function_code == "R":
-        item_index = user_input("Index Number?")
+    elif function_code == "R" or function_code == "r":
+        item_index = user_input("Index Number?: ")
         item_index = int(item_index)
         # Remember that item_index must actually exist or our program will crash.
         print(read(item_index))
 
-    elif function_code == "U":
-        item_index = user_input("Index Number?")
+    elif function_code == "U" or function_code == "u":
+        item_index = user_input("Index Number?: ")
         item_index = int(item_index)
         print(read(item_index))
-        item_update = user_input("Update to Item?")
+        item_update = user_input("Update to Item?: ")
         item_index = int(item_index)
         # Remember that item_index must actually exist or our program will crash.
         update(item_index, item_update)
 
+    elif function_code == "D" or function_code == "d":
+        try:
+            item_index = int(user_input("Index Number to Delete item?: "))
+            destroy(item_index)
+        except ValueError:
+            print("Inccorect Input. Use Number.")
+
     # Print all items
-    elif function_code == "P":
+    elif function_code == "P" or function_code == "p":
         list_all_items()
 
-    elif function_code == "Q":
+    elif function_code == "Q" or function_code == "q":
         return False
 
     # Catch all
@@ -84,7 +94,7 @@ def user_input(prompt):
     # and wait for user input.
     user_input = input(prompt)
     return user_input
-
+#--------------------------------------------------------------------
 # Test
 def test():
     """Testing code above"""
@@ -115,7 +125,7 @@ def test():
 
 running = True
 while running:
-    selection = user_input("Press C to add to list, R to Read from list, U to update item in list, P to display list, and Q to quit: ")
+    selection = user_input("Press C to add to list, R to Read from list, U to update item in list, D to delete item in list, P to display list, and Q to quit: ")
     running = select(selection)
 # def test2():
 #     create("purple sox")
