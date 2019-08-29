@@ -58,6 +58,15 @@ def select(function_code):
         # Remember that item_index must actually exist or our program will crash.
         print(read(item_index))
 
+    elif function_code == "U":
+        item_index = user_input("Index Number?")
+        item_index = int(item_index)
+        print(read(item_index))
+        item_update = user_input("Update to Item?")
+        item_index = int(item_index)
+        # Remember that item_index must actually exist or our program will crash.
+        update(item_index, item_update)
+
     # Print all items
     elif function_code == "P":
         list_all_items()
@@ -106,7 +115,7 @@ def test():
 
 running = True
 while running:
-    selection = user_input("Press C to add to list, R to Read from list, P to display list, and Q to quit")
+    selection = user_input("Press C to add to list, R to Read from list, U to update item in list, P to display list, and Q to quit: ")
     running = select(selection)
 # def test2():
 #     create("purple sox")
