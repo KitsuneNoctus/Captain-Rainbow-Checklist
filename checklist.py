@@ -35,6 +35,36 @@ def list_all_items():
         print("{} {}".format(index, list_item))
         index += 1
 
+def mark_completed(index):
+    #add code
+    #https://www.geeksforgeeks.org/print-colors-python-terminal/
+    #Checkout later for the stretch goal
+
+    checklist[index] = "%s %s"%("√",checklist[index])
+
+
+
+def select(function_code):
+    # Create item
+    if function_code == "C":
+        input_item = user_input("Input item:")
+        create(input_item)
+
+    # Read item
+    elif function_code == "R":
+        item_index = user_input("Index Number?")
+
+        # Remember that item_index must actually exist or our program will crash.
+        read(item_index)
+
+    # Print all items
+    elif function_code == "P":
+        list_all_items()
+
+    # Catch all
+    else:
+        print("Unknown Option")
+
 # Test
 def test():
     """Testing code above"""
@@ -51,6 +81,12 @@ def test():
 
     list_all_items()
 
+# def test2():
+#     create("purple sox")
+#     create("red cloak")
+#
+#     mark_completed(0)
+#     print(checklist)
 
 test()
 
