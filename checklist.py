@@ -40,10 +40,11 @@ def mark_completed(index):
     #https://www.geeksforgeeks.org/print-colors-python-terminal/
     #Checkout later for the stretch goal
 
+    #recieved help from tutor
     checklist[index] = "%s %s"%("√",checklist[index])
 
 
-
+#Select Function ---------------
 def select(function_code):
     # Create item
     if function_code == "C":
@@ -53,17 +54,27 @@ def select(function_code):
     # Read item
     elif function_code == "R":
         item_index = user_input("Index Number?")
-
+        item_index = int(item_index)
         # Remember that item_index must actually exist or our program will crash.
-        read(item_index)
+        print(read(item_index))
 
     # Print all items
     elif function_code == "P":
         list_all_items()
 
+    elif function_code == "Q":
+        return False
+
     # Catch all
     else:
         print("Unknown Option")
+    return True
+
+def user_input(prompt):
+    # the input function will display a message in the terminal
+    # and wait for user input.
+    user_input = input(prompt)
+    return user_input
 
 # Test
 def test():
@@ -79,16 +90,30 @@ def test():
 
     print(read(0))
 
+    # Call your new function with the appropriate value
+    select("C")
+    # View the results
     list_all_items()
+    # Call function with new value
+    select("R")
+    # View results
+    list_all_items()
+    # Continue until all code is run
+    user_value = user_input("Please Enter a value:")
+    print(user_value)
 
+# test()
+
+running = True
+while running:
+    selection = user_input("Press C to add to list, R to Read from list, P to display list, and Q to quit")
+    running = select(selection)
 # def test2():
 #     create("purple sox")
 #     create("red cloak")
 #
 #     mark_completed(0)
 #     print(checklist)
-
-test()
 
 # checklist.append('Blue')
 # print(checklist)
