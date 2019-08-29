@@ -11,13 +11,19 @@ def create(item):
 # Read
 def read(index):
     """Gets element from the list."""
-    return checklist[index]
+    try:
+        return checklist[index]
+    except IndexError:
+        print("Index not within current list.")
 
 
 # UPDATE
 def update(index, item):
     """Updates items in list."""
-    checklist[index] = item
+    try:
+        checklist[index] = item
+    except IndexError:
+        print("Outside the inedx range of the list. Try again.")
 
 
 # Destroy
@@ -62,13 +68,18 @@ def select(function_code):
         print(read(item_index))
 
     elif function_code == "U" or function_code == "u":
-        item_index = user_input("Index Number?: ")
-        item_index = int(item_index)
-        print(read(item_index))
-        item_update = user_input("Update to Item?: ")
-        item_index = int(item_index)
-        # Remember that item_index must actually exist or our program will crash.
-        update(item_index, item_update)
+        try:
+            item_index = user_input("Index Number?: ")
+            item_index = int(item_index)
+            print(read(item_index))
+            item_update = user_input("Update to Item?: ")
+            item_index = int(item_index)
+            # Remember that item_index must actually exist or our program will crash.
+            update(item_index, item_update)
+        except ValueError:
+            print("Enter What is Asked.")
+        except IndexError:
+            print("Not an Index in current list")
 
     elif function_code == "D" or function_code == "d":
         try:
