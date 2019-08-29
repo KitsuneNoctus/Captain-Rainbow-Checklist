@@ -30,7 +30,9 @@ def list_all_items():
     """Lists all items."""
     index = 0
     for list_item in checklist:
-        print(index + list_item)
+        #print(str(index) + list_item)
+        #below is the proper way to format the line
+        print("{} {}".format(index, list_item))
         index += 1
 
 # Test
