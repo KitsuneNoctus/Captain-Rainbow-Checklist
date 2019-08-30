@@ -73,7 +73,7 @@ def select(function_code):
             item_index = int(item_index)
             print(read(item_index))
             item_update = user_input("Update to Item?: ")
-            item_index = int(item_index)
+            
             # Remember that item_index must actually exist or our program will crash.
             update(item_index, item_update)
         except ValueError:
