@@ -98,6 +98,8 @@ def select(function_code):
             mark_completed(item_index)
         except ValueError:
             print("Please try again/ Choose another option.")
+        except IndexError:
+            print("Not in the List.")
 
     elif function_code == "Q" or function_code == "q":
         return False
