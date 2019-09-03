@@ -50,6 +50,7 @@ def mark_completed(index):
     #Checkout later for the stretch goal
     #recieved help from tutor
     checklist[index] = "%s %s"%("√",checklist[index])
+    print(checklist[index])
 
 
 #Select Function ---------------
