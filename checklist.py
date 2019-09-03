@@ -48,7 +48,6 @@ def mark_completed(index):
     #add code
     #https://www.geeksforgeeks.org/print-colors-python-terminal/
     #Checkout later for the stretch goal
-
     #recieved help from tutor
     checklist[index] = "%s %s"%("√",checklist[index])
 
@@ -141,7 +140,7 @@ def test():
 
 running = True
 while running:
-    selection = user_input("Press C to add to list, R to Read from list, U to update item in list, D to delete item in list, P to display list, and Q to quit: ")
+    selection = user_input("Press C to add to list, R to Read from list, U to update item in list, D to delete item in list, P to display list, M to mark item in list as completed, and Q to quit: ")
     running = select(selection)
 # def test2():
 #     create("purple sox")
