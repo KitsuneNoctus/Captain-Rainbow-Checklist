@@ -73,7 +73,7 @@ def select(function_code):
             item_index = int(item_index)
             print(read(item_index))
             item_update = user_input("Update to Item?: ")
-            
+
             # Remember that item_index must actually exist or our program will crash.
             update(item_index, item_update)
         except ValueError:
@@ -91,6 +91,11 @@ def select(function_code):
     # Print all items
     elif function_code == "P" or function_code == "p":
         list_all_items()
+
+    elif function_code == "M" or function_code == "m":
+        item_index = user_input("Index Number of item used?: ")
+        item_index = int(item_index)
+        mark_completed(item_index)
 
     elif function_code == "Q" or function_code == "q":
         return False
