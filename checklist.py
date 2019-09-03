@@ -92,9 +92,12 @@ def select(function_code):
         list_all_items()
 
     elif function_code == "M" or function_code == "m":
-        item_index = user_input("Index Number of item used?: ")
-        item_index = int(item_index)
-        mark_completed(item_index)
+        try:
+            item_index = user_input("Index Number of item used?: ")
+            item_index = int(item_index)
+            mark_completed(item_index)
+        except ValueError:
+            print("Please try again/ Choose another option.")
 
     elif function_code == "Q" or function_code == "q":
         return False
